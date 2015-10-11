@@ -69,7 +69,7 @@ declare module ReactRouter {
     interface RouteProp {
         name?: string;
         path?: string;
-        handler?: React.ComponentClass<any>;
+        component?: React.ComponentClass<any>;
         ignoreScrollBehavior?: boolean;
     }
     interface Route extends React.ReactElement<RouteProp> {}
@@ -264,6 +264,24 @@ declare module ReactRouter {
     }
     var History: History;
 
+
+    //
+    // Match
+    // ----------------------------------------------------------------------
+    interface matchProps {
+        routes?: Route[];
+        location: Location | string;
+        parseQueryString?: any;
+        stringifyQuery?: any;
+        basename?: any;
+    }
+
+    type matchCallback = (
+        error: any,
+        redirectLocation: Location,
+        renderProps: React.Props<any>) => void;
+
+    var match: (options: matchProps, callback: matchCallback) => any;
 
     //
     // Context
