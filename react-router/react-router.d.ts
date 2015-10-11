@@ -140,8 +140,20 @@ declare module ReactRouter {
     }
     interface RouteHandlerClass extends React.ComponentClass<RouteHandlerProp> {}
 
+    interface RoutingContextProp {
+      history: {},
+      createElement(component: React.ComponentClass<any>, props: {}): React.ComponentClass<any>,
+      location: LocationBase,
+      routes: Route[],
+      params: {},
+      components: React.ComponentClass<any>[]
+    }
+
+    interface RoutingContextClass extends React.ComponentClass<RoutingContextProp> {}
+
     var Link: LinkClass;
     var RouteHandler: RouteHandlerClass;
+    var RoutingContext: RoutingContextClass;
 
 
     //
